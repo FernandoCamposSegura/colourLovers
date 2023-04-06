@@ -24,10 +24,9 @@ public class AppController {
         wordInput.clear();
         wordInput.requestFocus();
         definitionsArea.setText("");
-        
+        //Obtener color por hexadecimal
         Consumer<Color> user = (color) -> {
             definitionsArea.setText(definitionsArea.getText() + "\n" + color.getNumComments());
-            System.out.println(color.getNumComments());
         };
 
         colorTask = new ColorTask(requestedColor, user);
