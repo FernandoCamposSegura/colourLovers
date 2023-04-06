@@ -12,4 +12,7 @@ public interface IColourService {
 
     @GET("api/color/{hex}?format=json")
     Observable<List<Color>> getInformation(@Path("hex") String hex);
+
+    @GET("api/color?format=json")
+    Observable<List<Color>> getAllInformation();
 }
