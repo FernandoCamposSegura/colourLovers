@@ -32,4 +32,17 @@ public class AppController {
         colorTask = new ColorTask(requestedColor, user);
         new Thread(colorTask).start();
     }
+
+    @FXML
+    public void searchAllColors(ActionEvent event){
+        String requestedColor = wordInput.getText();
+        definitionsArea.setText("");
+
+        Consumer<Color> user = (color) -> {
+            definitionsArea.setText(color.getTitle() + definitionsArea.getText() + "\n");
+        };
+
+        colorTask = new ColorTask(requestedColor, user);
+        new Thread(colorTask).start();
+    }
 }
