@@ -13,7 +13,7 @@ public class Color {
     int numViews;
     int numVotes;
     int numComments;
-    int numHearts;
+    float numHearts;
     String hex;
     RGB rgb;
     HSV hsv;

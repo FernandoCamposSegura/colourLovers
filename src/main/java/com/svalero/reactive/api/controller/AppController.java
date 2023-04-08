@@ -1,48 +1,39 @@
 package com.svalero.reactive.api.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.svalero.reactive.api.model.Color;
-import com.svalero.reactive.api.task.ColorTask;
+import com.svalero.reactive.api.service.ColourService;
 
 import io.reactivex.functions.Consumer;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 
-public class AppController {
+public class AppController implements Initializable {
 
-    public TextField wordInput;
-    public Button btSearch;
-    public TextArea definitionsArea;
-
-    private ColorTask colorTask;
-
-    @FXML
-    public void searchColors(ActionEvent event){
-        String requestedColor = wordInput.getText();
-        wordInput.clear();
-        wordInput.requestFocus();
-        definitionsArea.setText("");
-        //Obtener color por hexadecimal
-        Consumer<Color> user = (color) -> {
-            definitionsArea.setText(definitionsArea.getText() + "\n" + color.getNumComments());
-        };
-
-        colorTask = new ColorTask(requestedColor, user);
-        new Thread(colorTask).start();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.fillSelector();
     }
-
-    @FXML
-    public void searchAllColors(ActionEvent event){
-        String requestedColor = wordInput.getText();
-        definitionsArea.setText("");
+    
+    public void fillSelector() {
+        ColourService colourService = new ColourService();
 
         Consumer<Color> user = (color) -> {
-            definitionsArea.setText(color.getTitle() + definitionsArea.getText() + "\n");
+            titles.add(color.getTitle());
         };
 
-        colorTask = new ColorTask(requestedColor, user);
-        new Thread(colorTask).start();
+        mainSelector.setItems(titles);
+        colourService.getAllInformation().subscribe(user);
     }
+
+    public void showColor() {
+        System.out.println(mainSelector.getSelectionModel());
+    }
+
+    ObservableList<String> titles = FXCollections.observableArrayList();
+    public ComboBox<String> mainSelector = new ComboBox<>(titles);
 }

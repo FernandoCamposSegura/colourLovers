@@ -1,5 +1,7 @@
 package com.svalero.reactive.api.service;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.svalero.reactive.api.model.Color;
@@ -38,6 +40,10 @@ public class ColourService {
 
     public Observable<Color> getInformation(String hex){
         return this.coloursAPI.getInformation(hex).flatMapIterable(color -> color);
+    }
+
+    public Observable<Color> getAllInformation() {
+        return this.coloursAPI.getAllInformation().flatMapIterable(colors -> colors);
     }
 
 }
