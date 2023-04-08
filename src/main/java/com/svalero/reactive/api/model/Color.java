@@ -14,6 +14,7 @@ public class Color {
     int numVotes;
     int numComments;
     float numHearts;
+    int rank;
     String hex;
     RGB rgb;
     HSV hsv;
