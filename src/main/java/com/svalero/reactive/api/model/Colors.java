@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RGB {
-    double red;
-    double green;
-    double blue;
+public class Colors {
+    String hex;
 }

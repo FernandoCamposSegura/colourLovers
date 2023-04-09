@@ -3,8 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,234 +20,435 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="592.0">
          <children>
-            <VBox alignment="CENTER" layoutX="8.0" prefHeight="387.0" prefWidth="573.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="577.0" style="-fx-background-color: b5ead7;" text="SELECTOR">
-                     <font>
-                        <Font name="Comfortaa Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <HBox prefHeight="69.0" prefWidth="573.0" style="-fx-border-color: b5ead7; -fx-border-width: 3px;">
-                     <children>
-                        <VBox prefHeight="67.0" prefWidth="171.0">
+            <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Colors">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="361.0" prefWidth="599.0">
                            <children>
-                              <ComboBox fx:id="mainSelector" onAction="#showColor" prefWidth="150.0" promptText="Select a color" style="-fx-background-color: ffe5f0; -fx-border-color: fdcae1;" />
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="19.0" prefWidth="577.0" style="-fx-background-color: FFB7B2;" text="COMMUNITY">
-                     <font>
-                        <Font name="Comfortaa Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER" prefHeight="135.0" prefWidth="573.0" style="-fx-border-color: FFB7B2; -fx-border-width: 3px;">
-                     <children>
-                        <VBox alignment="CENTER" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
-                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/view.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label fx:id="lbViews" text="0">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="141.0" prefWidth="126.0" style="-fx-border-color: FFB7B2;">
-                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/one-finger.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label fx:id="lbVotes" text="0">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="113.0" layoutY="13.0" prefHeight="141.0" prefWidth="130.0" style="-fx-border-color: FFB7B2;">
-                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/chat.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label fx:id="lbComments" text="0">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="213.0" layoutY="13.0" prefHeight="141.0" prefWidth="126.0" style="-fx-border-color: FFB7B2;">
-                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/heart.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label fx:id="lbHearts" text="0">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="41.0" layoutY="13.0" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
-                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/star.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label fx:id="lbRank" text="0">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="100.0" prefHeight="19.0" prefWidth="577.0" style="-fx-background-color: C7CEEA;" text="PROPERTIES">
-                     <font>
-                        <Font name="Comfortaa Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <HBox prefHeight="183.0" prefWidth="573.0" style="-fx-border-color: C7CEEA; -fx-border-width: 3px;">
-                     <children>
-                        <VBox alignment="CENTER" prefHeight="141.0" prefWidth="201.0" style="-fx-border-color: C7CEEA;">
-                           <children>
-                              <Label text="RGB">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                              <VBox alignment="CENTER" prefHeight="370.0" prefWidth="600.0">
                                  <children>
-                                    <Slider />
-                                    <Circle fill="RED" radius="10.0" stroke="RED" strokeType="INSIDE" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="21.0" layoutY="39.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Slider />
-                                    <Circle fill="LIME" radius="10.0" stroke="LIME" strokeType="INSIDE" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="21.0" layoutY="89.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Slider />
-                                    <Circle fill="BLUE" radius="10.0" stroke="BLUE" strokeType="INSIDE" />
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="141.0" prefWidth="201.0" style="-fx-border-color: C7CEEA;">
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Slider />
-                                    <Label text="H">
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="617.0" style="-fx-background-color: b5ead7;" text="SELECTOR">
                                        <font>
                                           <Font name="Comfortaa Bold" size="12.0" />
                                        </font>
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
                                     </Label>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="21.0" layoutY="39.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Slider />
-                                    <Label text="S">
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="605.0" style="-fx-border-color: b5ead7; -fx-border-width: 3px;">
+                                       <children>
+                                          <VBox prefHeight="67.0" prefWidth="171.0">
+                                             <children>
+                                                <ComboBox fx:id="mainSelector" onAction="#showColor" prefWidth="150.0" promptText="Select a color" style="-fx-background-color: ffe5f0; -fx-border-color: fdcae1;" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+                                       </children>
+                                    </HBox>
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="16.0" prefWidth="649.0" style="-fx-background-color: FFB7B2;" text="COMMUNITY">
                                        <font>
                                           <Font name="Comfortaa Bold" size="12.0" />
                                        </font>
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
                                     </Label>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" layoutX="21.0" layoutY="89.0" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Slider />
-                                    <Label text="V">
+                                    <HBox alignment="CENTER" prefHeight="91.0" prefWidth="573.0" style="-fx-border-color: FFB7B2; -fx-border-width: 3px;">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/view.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbViews" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="141.0" prefWidth="126.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/one-finger.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbVotes" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="113.0" layoutY="13.0" prefHeight="141.0" prefWidth="130.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/chat.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbComments" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="213.0" layoutY="13.0" prefHeight="141.0" prefWidth="126.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fx:id="imvHeart" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/heart.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbHearts" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="41.0" layoutY="13.0" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/star.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbRank" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="100.0" prefHeight="16.0" prefWidth="623.0" style="-fx-background-color: C7CEEA;" text="PROPERTIES">
                                        <font>
                                           <Font name="Comfortaa Bold" size="12.0" />
                                        </font>
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
                                     </Label>
+                                    <HBox prefHeight="118.0" prefWidth="573.0" style="-fx-border-color: C7CEEA; -fx-border-width: 3px;">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="141.0" prefWidth="201.0" style="-fx-border-color: C7CEEA;">
+                                             <children>
+                                                <Label text="RGB">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Slider fx:id="slRed" />
+                                                      <Circle fill="RED" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="21.0" layoutY="39.0" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Slider fx:id="slGreen" />
+                                                      <Circle fill="LIME" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="21.0" layoutY="89.0" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Slider fx:id="slBlue" />
+                                                      <Circle fill="BLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="145.0" prefWidth="201.0" style="-fx-border-color: C7CEEA;">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Slider fx:id="slHue" />
+                                                      <Label text="H">
+                                                         <font>
+                                                            <Font name="Comfortaa Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="21.0" layoutY="39.0" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Slider fx:id="slSaturation" />
+                                                      <Label text="S">
+                                                         <font>
+                                                            <Font name="Comfortaa Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="21.0" layoutY="89.0" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Slider fx:id="slValue" />
+                                                      <Label text="V">
+                                                         <font>
+                                                            <Font name="Comfortaa Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="141.0" layoutY="13.0" prefHeight="150.0" prefWidth="191.0" style="-fx-border-color: C7CEEA;">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="lbHex" text="#000000">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Circle fx:id="clColor" fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Circle>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
+                              </VBox>
                            </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="141.0" layoutY="13.0" prefHeight="141.0" prefWidth="166.0" style="-fx-border-color: C7CEEA;">
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab onSelectionChanged="#fillPaletteSelector" text="Palettes">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="lbHex" text="#000000">
-                                 <font>
-                                    <Font name="Comfortaa Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Circle fx:id="clColor" fill="DODGERBLUE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
+                              <VBox prefHeight="369.0" prefWidth="600.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="617.0" style="-fx-background-color: b5ead7;" text="SELECTOR">
+                                       <font>
+                                          <Font name="Comfortaa Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="605.0" style="-fx-border-color: b5ead7; -fx-border-width: 3px;">
+                                       <children>
+                                          <VBox prefHeight="67.0" prefWidth="171.0">
+                                             <children>
+                                                <ComboBox fx:id="mainSelectorPalette" onAction="#showColor" prefWidth="150.0" promptText="Select a palette" style="-fx-background-color: ffe5f0; -fx-border-color: fdcae1;" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <ProgressBar fx:id="progressBar1" prefWidth="200.0" progress="0.0" />
+                                       </children>
+                                    </HBox>
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="649.0" style="-fx-background-color: FFB7B2;" text="COMMUNITY">
+                                       <font>
+                                          <Font name="Comfortaa Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="91.0" prefWidth="573.0" style="-fx-border-color: FFB7B2; -fx-border-width: 3px;">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/view.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbPaletteViews" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="141.0" prefWidth="126.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/one-finger.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbPaletteVotes" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="113.0" layoutY="13.0" prefHeight="141.0" prefWidth="130.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/chat.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbPaletteComments" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="213.0" layoutY="13.0" prefHeight="141.0" prefWidth="126.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/heart.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbPaletteHearts" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="41.0" layoutY="13.0" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/star.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label fx:id="lbPaletteRank" text="0">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="623.0" style="-fx-background-color: C7CEEA;" text="PROPERTIES">
+                                       <font>
+                                          <Font name="Comfortaa Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="118.0" prefWidth="573.0" style="-fx-border-color: C7CEEA; -fx-border-width: 3px;">
+                                       <children>
+                                          <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="150.0" prefWidth="403.0" style="-fx-border-color: C7CEEA;">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <ImageView fitHeight="113.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="141.0" layoutY="13.0" prefHeight="150.0" prefWidth="191.0" style="-fx-border-color: C7CEEA;">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="lbHex1" text="#000000">
+                                                   <font>
+                                                      <Font name="Comfortaa Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Circle fx:id="clColor1" fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Circle>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
          </children></AnchorPane>
   </content>
 </ScrollPane>

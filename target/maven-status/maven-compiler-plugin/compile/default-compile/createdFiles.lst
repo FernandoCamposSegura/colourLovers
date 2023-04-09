@@ -2,7 +2,10 @@ com\svalero\reactive\api\task\ColorTask.class
 com\svalero\reactive\api\App.class
 com\svalero\reactive\api\controller\AppController.class
 com\svalero\reactive\api\service\ColourService.class
+com\svalero\reactive\api\task\PaletteTask.class
 com\svalero\reactive\api\model\Color.class
+com\svalero\reactive\api\model\Colors.class
+com\svalero\reactive\api\model\Palette.class
 com\svalero\reactive\api\model\HSV.class
 com\svalero\reactive\api\util\R.class
 com\svalero\reactive\api\service\IColourService.class
