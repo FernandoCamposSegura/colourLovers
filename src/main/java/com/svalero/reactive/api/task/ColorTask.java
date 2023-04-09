@@ -18,7 +18,7 @@ public class ColorTask extends Task<Integer> {
     @Override
     protected Integer call() throws Exception {
         ColourService colourService = new ColourService();
-        colourService.getInformation(hex).subscribe(user);
+        colourService.getColorInformation(hex).subscribe(user);
         return null;
     }
     

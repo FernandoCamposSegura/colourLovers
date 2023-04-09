@@ -12,10 +12,13 @@ import retrofit2.http.Path;
 public interface IColourService {
 
     @GET("api/color/{hex}?format=json")
-    Observable<List<Color>> getInformation(@Path("hex") String hex);
+    Observable<List<Color>> getColorInformation(@Path("hex") String hex);
 
     @GET("api/colors?format=json")
     Observable<List<Color>> getAllInformation();
+
+    @GET("api/palette/{id}?format=json")
+    Observable<List<Palette>> getPaletteInformation(@Path("id") long id);
 
     @GET("api/palettes?format=json")
     Observable<List<Palette>> getAllPalettesInformation();

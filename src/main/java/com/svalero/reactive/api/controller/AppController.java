@@ -8,6 +8,7 @@ import com.svalero.reactive.api.model.Color;
 import com.svalero.reactive.api.model.Palette;
 import com.svalero.reactive.api.service.ColourService;
 import com.svalero.reactive.api.task.ColorTask;
+import com.svalero.reactive.api.task.PaletteTask;
 
 import io.reactivex.functions.Consumer;
 import javafx.application.Platform;
@@ -50,10 +51,10 @@ public class AppController implements Initializable {
         ColourService colourService = new ColourService();
 
         Consumer<Palette> user = (palette) -> {
-            paleteTitles.put(palette.getId(), palette.getTitle());
+            paleteTitles.add(palette.getTitle());
         };
 
-        mainSelectorPalette.setItems(FXCollections.observableArrayList(paleteTitles.values()));
+        mainSelectorPalette.setItems(paleteTitles);
         colourService.getAllPalettesInformation().subscribe(user);
     }
 
@@ -69,7 +70,19 @@ public class AppController implements Initializable {
         colourService.getAllInformation().subscribe(user);
     }
 
-    @FXML
+    public void showPalette() {
+        ColourService colourService = new ColourService();
+
+        Consumer<Palette> user = (palette) -> {
+            if(palette.getTitle().equals(mainSelectorPalette.getValue())) {
+                System.out.print(palette.getId());
+                searchPalette(palette.getId());
+            }
+        };
+
+        colourService.getAllPalettesInformation().subscribe(user);
+    }
+
     public void searchColor(String hex) {
 
         Consumer<Color> user = (color) -> {
@@ -97,14 +110,33 @@ public class AppController implements Initializable {
         new Thread(colorTask).start();
     }
 
+    public void searchPalette(long id) {
+
+        Consumer<Palette> user = (palette) -> {
+            Platform.runLater(() -> {
+                lbPaletteViews.setText(String.valueOf(palette.getNumViews()));
+                lbPaletteVotes.setText(String.valueOf(palette.getNumVotes()));
+                lbPaletteComments.setText(String.valueOf(palette.getNumComments()));
+                lbPaletteHearts.setText(String.valueOf(palette.getNumHearts()));
+                lbPaletteRank.setText(String.valueOf(palette.getRank()));
+            });
+            imvPalette.setImage(new Image(palette.getApiUrl()));
+        };
+
+        PaletteTask paletteTask = new PaletteTask(user, id);
+
+        // progressBar.progressProperty().bind(colorTask.progressProperty());
+        new Thread(paletteTask).start();
+    }
+
     ColorTask colorTask;
 
     //UI Elements
     ObservableList<String> colorTitles = FXCollections.observableArrayList();
     public ComboBox<String> mainSelector = new ComboBox<>(colorTitles);
 
-    ObservableMap<Long, String> paleteTitles = FXCollections.observableHashMap();
-    public ComboBox<String> mainSelectorPalette;
+    ObservableList<String> paleteTitles = FXCollections.observableArrayList();
+    public ComboBox<String> mainSelectorPalette = new ComboBox<>(paleteTitles);
 
     public Label lbViews;
     public Label lbVotes;
@@ -113,6 +145,12 @@ public class AppController implements Initializable {
     public Label lbRank;
     public Label lbHex;
     public Label lbColor;
+
+    public Label lbPaletteViews;
+    public Label lbPaletteVotes;
+    public Label lbPaletteComments;
+    public Label lbPaletteHearts;
+    public Label lbPaletteRank;
 
     public Slider slRed;
     public Slider slGreen;
@@ -123,6 +161,8 @@ public class AppController implements Initializable {
     public Slider slValue;
 
     public Circle clColor;
+
+    public ImageView imvPalette;
 
     public ProgressBar progressBar;
 }

@@ -37,12 +37,16 @@ public class ColourService {
         this.coloursAPI = retrofit.create(IColourService.class);
     }
 
-    public Observable<Color> getInformation(String hex){
-        return this.coloursAPI.getInformation(hex).flatMapIterable(color -> color);
+    public Observable<Color> getColorInformation(String hex){
+        return this.coloursAPI.getColorInformation(hex).flatMapIterable(color -> color);
     }
 
     public Observable<Color> getAllInformation() {
         return this.coloursAPI.getAllInformation().flatMapIterable(colors -> colors);
+    }
+
+    public Observable<Palette> getPaletteInformation(long id){
+        return this.coloursAPI.getPaletteInformation(id).flatMapIterable(palette -> palette);
     }
 
     public Observable<Palette> getAllPalettesInformation() {
