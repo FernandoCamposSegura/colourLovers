@@ -17,7 +17,6 @@ public class PaletteTask extends Task<Integer> {
 
     @Override
     protected Integer call() throws Exception {
-        System.out.print("Hilo lanzado");
         ColourService colourService = new ColourService();
         colourService.getPaletteInformation(id).subscribe(user);
         return null;

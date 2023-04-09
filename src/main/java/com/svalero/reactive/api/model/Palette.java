@@ -17,6 +17,5 @@ public class Palette {
     int numComments;
     float numHearts;
     int rank;
-    String apiUrl;
-    //List<Colors> colors;
+    List<String> colors;
 }
