@@ -1,11 +1,13 @@
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\task\ColorTask.java
-C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\service\ColourService.java
-C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\model\Palette.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\task\PaletteTask.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\util\R.java
+C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\service\IColourService.java
+C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\task\FillColorTask.java
+C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\task\FillPaletteTask.java
+C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\service\ColourService.java
+C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\model\Palette.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\App.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\model\Color.java
-C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\service\IColourService.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\controller\AppController.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\model\RGB.java
 C:\Users\campo\Desktop\NANDO\CURSO DAM\2º CURSO\PROGRAMACIÓN DE SERVICIOS Y PROCESOS\AA2\colour-lovers\src\main\java\com\svalero\reactive\api\model\HSV.java

@@ -17,6 +17,8 @@ import com.svalero.reactive.api.model.Color;
 import com.svalero.reactive.api.model.Palette;
 import com.svalero.reactive.api.service.ColourService;
 import com.svalero.reactive.api.task.ColorTask;
+import com.svalero.reactive.api.task.FillColorTask;
+import com.svalero.reactive.api.task.FillPaletteTask;
 import com.svalero.reactive.api.task.PaletteTask;
 
 import io.reactivex.functions.Consumer;
@@ -28,8 +30,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
@@ -43,28 +47,18 @@ public class AppController implements Initializable {
         slRed.setMax(255);
         slGreen.setMax(255);
         slBlue.setMax(255);
+        colorIndicator.setVisible(false);
+        paletteIndicator.setVisible(false);
     }
 
     public void fillColorSelector() {
-        ColourService colourService = new ColourService();
-
-        Consumer<Color> user = (color) -> {
-            colorTitles.add(color.getTitle());
-        };
-
-        mainSelector.setItems(colorTitles);
-        colourService.getAllInformation().subscribe(user);
+        FillColorTask fillColorTask = new FillColorTask(mainSelector);
+        new Thread(fillColorTask).start();
     }
 
     public void fillPaletteSelector() {
-        ColourService colourService = new ColourService();
-
-        Consumer<Palette> user = (palette) -> {
-            paleteTitles.add(palette.getTitle());
-        };
-
-        mainSelectorPalette.setItems(paleteTitles);
-        colourService.getAllPalettesInformation().subscribe(user);
+        FillPaletteTask fillPaletteTask = new FillPaletteTask(mainSelectorPalette);
+        new Thread(fillPaletteTask).start();
     }
 
     public void showColor() {
@@ -72,6 +66,8 @@ public class AppController implements Initializable {
 
         Consumer<Color> user = (color) -> {
             if (color.getTitle().equals(mainSelector.getValue())) {
+
+                colorIndicator.setVisible(true);
                 searchColor(color.getHex());
             }
         };
@@ -84,7 +80,8 @@ public class AppController implements Initializable {
 
         Consumer<Palette> user = (palette) -> {
             if (palette.getTitle().equals(mainSelectorPalette.getValue())) {
-                System.out.print(palette.getId());
+
+                paletteIndicator.setVisible(true);
                 searchPalette(palette.getId());
             }
         };
@@ -93,7 +90,6 @@ public class AppController implements Initializable {
     }
 
     public void searchColor(String hex) {
-
         Consumer<Color> user = (color) -> {
             Platform.runLater(() -> {
                 lbViews.setText(String.valueOf(color.getNumViews()));
@@ -102,6 +98,8 @@ public class AppController implements Initializable {
                 lbHearts.setText(String.valueOf(color.getNumHearts()));
                 lbRank.setText(String.valueOf(color.getRank()));
                 lbHex.setText("#" + String.valueOf(color.getHex()));
+                searchedColorsArea.setText(searchedColorsArea.getText() +
+                    "Color searched -> " + color.getTitle() + " Hex Code -> " + color.getHex() + "\n");
             });
 
             clColor.setFill(javafx.scene.paint.Color.valueOf("#" + color.getHex()));
@@ -111,11 +109,11 @@ public class AppController implements Initializable {
             slHue.setValue(color.getHsv().getHue());
             slSaturation.setValue(color.getHsv().getSaturation());
             slValue.setValue(color.getHsv().getValue());
+            
+            colorsSearched.add(color);
         };
 
-        ColorTask colorTask = new ColorTask(hex, user);
-
-        // progressBar.progressProperty().bind(colorTask.progressProperty());
+        ColorTask colorTask = new ColorTask(hex, user, colorIndicator);
         new Thread(colorTask).start();
     }
 
@@ -130,13 +128,19 @@ public class AppController implements Initializable {
                 lbPaletteRank.setText(String.valueOf(palette.getRank()));
             });
             imvPalette.setImage(new Image(getUrlImageFromPalette(palette.getColors(), palette.getTitle())));
-            System.out.println(getUrlImageFromPalette(palette.getColors(), palette.getTitle()));
         };
 
-        PaletteTask paletteTask = new PaletteTask(user, id);
-
-        // progressBar.progressProperty().bind(colorTask.progressProperty());
+        PaletteTask paletteTask = new PaletteTask(user, id, paletteIndicator);
         new Thread(paletteTask).start();
+    }
+
+    public void deleteColorRegister() {
+        colorsSearched.remove(Integer.parseInt(colorRegisterSelected.getText()));
+
+        for(Color color : colorsSearched) {
+            searchedColorsArea.setText(searchedColorsArea.getText() +
+                    "Color searched -> " + color.getTitle() + " Hex Code -> " + color.getHex() + "\n");
+        }
     }
 
     @FXML
@@ -157,13 +161,12 @@ public class AppController implements Initializable {
             FileWriter writer = new FileWriter(outputFile);
             CSVWriter csvWriter = new CSVWriter(writer);
             List<String[]> data = new ArrayList<String[]>();
-            data.add(new String[] { mainSelector.getValue(), lbViews.getText(), lbVotes.getText(), lbComments.getText(),
-                    lbHearts.getText(), lbRank.getText() });
+            data.add(new String[] { searchedColorsArea.getText() });
             csvWriter.writeAll(data);
             csvWriter.close();
 
-            if(compressIsRequired) {
-                
+            if (compressIsRequired) {
+
                 String zipFile = outputFile.getName() + ".zip";
                 FileInputStream fis = new FileInputStream(outputFile);
 
@@ -209,6 +212,10 @@ public class AppController implements Initializable {
     ObservableList<String> paleteTitles = FXCollections.observableArrayList();
     public ComboBox<String> mainSelectorPalette = new ComboBox<>(paleteTitles);
 
+    public TextArea searchedColorsArea;
+    public List<Color> colorsSearched;
+    public TextField colorRegisterSelected;
+
     public Label lbViews;
     public Label lbVotes;
     public Label lbComments;
@@ -234,6 +241,6 @@ public class AppController implements Initializable {
     public Circle clColor;
 
     public ImageView imvPalette;
-
-    public ProgressBar progressBar;
+    public ProgressIndicator colorIndicator;
+    public ProgressIndicator paletteIndicator;
 }

@@ -4,11 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,17 +19,17 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="592.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="592.0">
          <children>
-            <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="489.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Colors">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="361.0" prefWidth="599.0">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="370.0" prefWidth="600.0">
+                              <VBox alignment="CENTER" prefHeight="445.0" prefWidth="600.0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="617.0" style="-fx-background-color: b5ead7;" text="SELECTOR">
                                        <font>
@@ -36,6 +38,7 @@
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="55.0" prefWidth="605.0" style="-fx-border-color: b5ead7; -fx-border-width: 3px;">
                                        <children>
+                                          <ProgressIndicator fx:id="colorIndicator" prefHeight="21.0" prefWidth="19.0" />
                                           <VBox prefHeight="67.0" prefWidth="171.0">
                                              <children>
                                                 <ComboBox fx:id="mainSelector" onAction="#showColor" prefWidth="150.0" promptText="Select a color" style="-fx-background-color: ffe5f0; -fx-border-color: fdcae1;" />
@@ -62,12 +65,12 @@
                                           <VBox alignment="CENTER" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../img/view.png" />
-                                                   </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
                                                    </VBox.margin>
+                                                   <image>
+                                                      <Image url="file:/C:/Users/campo/Desktop/NANDO/CURSO%20DAM/2º%20CURSO/PROGRAMACIÓN%20DE%20SERVICIOS%20Y%20PROCESOS/AA2/colour-lovers/src/main/resources/ui/img/view.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <Label fx:id="lbViews" text="0">
                                                    <font>
@@ -83,7 +86,7 @@
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/one-finger.png" />
+                                                      <Image url="file:/C:/Users/campo/Desktop/NANDO/CURSO%20DAM/2º%20CURSO/PROGRAMACIÓN%20DE%20SERVICIOS%20Y%20PROCESOS/AA2/colour-lovers/src/main/resources/ui/img/one-finger.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -103,7 +106,7 @@
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/chat.png" />
+                                                      <Image url="file:/C:/Users/campo/Desktop/NANDO/CURSO%20DAM/2º%20CURSO/PROGRAMACIÓN%20DE%20SERVICIOS%20Y%20PROCESOS/AA2/colour-lovers/src/main/resources/ui/img/chat.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -123,7 +126,7 @@
                                              <children>
                                                 <ImageView fx:id="imvHeart" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/heart.png" />
+                                                      <Image url="file:/C:/Users/campo/Desktop/NANDO/CURSO%20DAM/2º%20CURSO/PROGRAMACIÓN%20DE%20SERVICIOS%20Y%20PROCESOS/AA2/colour-lovers/src/main/resources/ui/img/heart.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -142,12 +145,12 @@
                                           <VBox alignment="CENTER" layoutX="41.0" layoutY="13.0" prefHeight="141.0" prefWidth="128.0" style="-fx-border-color: FFB7B2;">
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../img/star.png" />
-                                                   </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
                                                    </VBox.margin>
+                                                   <image>
+                                                      <Image url="file:/C:/Users/campo/Desktop/NANDO/CURSO%20DAM/2º%20CURSO/PROGRAMACIÓN%20DE%20SERVICIOS%20Y%20PROCESOS/AA2/colour-lovers/src/main/resources/ui/img/star.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <Label fx:id="lbRank" text="0">
                                                    <font>
@@ -275,6 +278,29 @@
                                           </VBox>
                                        </children>
                                     </HBox>
+                                    <HBox prefHeight="75.0" prefWidth="600.0">
+                                       <children>
+                                          <TextArea fx:id="searchedColorsArea" prefHeight="67.0" prefWidth="451.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </TextArea>
+                                          <VBox prefHeight="75.0" prefWidth="76.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#deleteColorRegister" style="-fx-background-color: fdfd96; -fx-border-color: f0e05f;" text="Delete">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                                <TextField fx:id="colorRegisterSelected" prefHeight="25.0" prefWidth="55.0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                   </VBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                            </children>
@@ -294,6 +320,7 @@
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="55.0" prefWidth="605.0" style="-fx-border-color: b5ead7; -fx-border-width: 3px;">
                                        <children>
+                                          <ProgressIndicator fx:id="paletteIndicator" prefHeight="21.0" prefWidth="19.0" />
                                           <VBox prefHeight="67.0" prefWidth="171.0">
                                              <children>
                                                 <ComboBox fx:id="mainSelectorPalette" onAction="#showPalette" prefWidth="150.0" promptText="Select a palette" style="-fx-background-color: ffe5f0; -fx-border-color: fdcae1;" />
@@ -302,7 +329,6 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </padding>
                                           </VBox>
-                                          <ProgressBar fx:id="progressBar1" prefWidth="200.0" progress="0.0" />
                                        </children>
                                     </HBox>
                                     <Label alignment="CENTER" prefHeight="16.0" prefWidth="649.0" style="-fx-background-color: FFB7B2;" text="COMMUNITY">
@@ -319,7 +345,7 @@
                                                       <Insets bottom="10.0" />
                                                    </VBox.margin>
                                                    <image>
-                                                      <Image url="@../img/view.png" />
+                                                      <Image url="file:/C:/Users/campo/Desktop/NANDO/CURSO%20DAM/2º%20CURSO/PROGRAMACIÓN%20DE%20SERVICIOS%20Y%20PROCESOS/AA2/colour-lovers/src/main/resources/ui/img/view.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label fx:id="lbPaletteViews" text="0">
@@ -336,7 +362,7 @@
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/one-finger.png" />
+                                                      <Image url="@img/one-finger.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -356,7 +382,7 @@
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/chat.png" />
+                                                      <Image url="@img/chat.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -376,7 +402,7 @@
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/heart.png" />
+                                                      <Image url="@img/heart.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -396,7 +422,7 @@
                                              <children>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../img/star.png" />
+                                                      <Image url="@img/star.png" />
                                                    </image>
                                                    <VBox.margin>
                                                       <Insets bottom="10.0" />
@@ -421,29 +447,12 @@
                                     </Label>
                                     <HBox prefHeight="118.0" prefWidth="573.0" style="-fx-border-color: C7CEEA; -fx-border-width: 3px;">
                                        <children>
-                                          <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="150.0" prefWidth="403.0" style="-fx-border-color: C7CEEA;">
+                                          <VBox alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="137.0" prefWidth="595.0" style="-fx-border-color: C7CEEA;">
                                              <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </padding>
                                              <children>
-                                                <ImageView fx:id="imvPalette" fitHeight="113.0" fitWidth="269.0" pickOnBounds="true" />
-                                             </children>
-                                          </VBox>
-                                          <VBox alignment="CENTER" layoutX="141.0" layoutY="13.0" prefHeight="150.0" prefWidth="191.0" style="-fx-border-color: C7CEEA;">
-                                             <padding>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                             </padding>
-                                             <children>
-                                                <Label fx:id="lbHex1" text="#000000">
-                                                   <font>
-                                                      <Font name="Comfortaa Bold" size="12.0" />
-                                                   </font>
-                                                </Label>
-                                                <Circle fx:id="clColor1" fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE">
-                                                   <VBox.margin>
-                                                      <Insets top="10.0" />
-                                                   </VBox.margin>
-                                                </Circle>
+                                                <ImageView fx:id="imvPalette" fitHeight="113.0" fitWidth="414.0" pickOnBounds="true" />
                                              </children>
                                           </VBox>
                                        </children>
