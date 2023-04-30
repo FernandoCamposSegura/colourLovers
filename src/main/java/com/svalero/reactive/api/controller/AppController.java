@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.FutureTask;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -17,6 +18,7 @@ import com.svalero.reactive.api.model.Color;
 import com.svalero.reactive.api.model.Palette;
 import com.svalero.reactive.api.service.ColourService;
 import com.svalero.reactive.api.task.ColorTask;
+import com.svalero.reactive.api.task.ColorsSearchedTask;
 import com.svalero.reactive.api.task.FillColorTask;
 import com.svalero.reactive.api.task.FillPaletteTask;
 import com.svalero.reactive.api.task.PaletteTask;
@@ -66,13 +68,16 @@ public class AppController implements Initializable {
 
         Consumer<Color> user = (color) -> {
             if (color.getTitle().equals(mainSelector.getValue())) {
-
                 colorIndicator.setVisible(true);
+                colorsSearched.add(color);
                 searchColor(color.getHex());
             }
         };
 
         colourService.getAllInformation().subscribe(user);
+
+        ColorsSearchedTask colorsSearchedTask = new ColorsSearchedTask(colorsSearched, searchedColorsArea);
+        new Thread(colorsSearchedTask).start();
     }
 
     public void showPalette() {
@@ -80,7 +85,6 @@ public class AppController implements Initializable {
 
         Consumer<Palette> user = (palette) -> {
             if (palette.getTitle().equals(mainSelectorPalette.getValue())) {
-
                 paletteIndicator.setVisible(true);
                 searchPalette(palette.getId());
             }
@@ -98,8 +102,6 @@ public class AppController implements Initializable {
                 lbHearts.setText(String.valueOf(color.getNumHearts()));
                 lbRank.setText(String.valueOf(color.getRank()));
                 lbHex.setText("#" + String.valueOf(color.getHex()));
-                searchedColorsArea.setText(searchedColorsArea.getText() +
-                    "Color searched -> " + color.getTitle() + " Hex Code -> " + color.getHex() + "\n");
             });
 
             clColor.setFill(javafx.scene.paint.Color.valueOf("#" + color.getHex()));
@@ -109,8 +111,6 @@ public class AppController implements Initializable {
             slHue.setValue(color.getHsv().getHue());
             slSaturation.setValue(color.getHsv().getSaturation());
             slValue.setValue(color.getHsv().getValue());
-            
-            colorsSearched.add(color);
         };
 
         ColorTask colorTask = new ColorTask(hex, user, colorIndicator);
@@ -135,11 +135,12 @@ public class AppController implements Initializable {
     }
 
     public void deleteColorRegister() {
-        colorsSearched.remove(Integer.parseInt(colorRegisterSelected.getText()));
+        int row = Integer.parseInt(colorRegisterSelected.getText());
+        if (row <= colorsSearched.size()) {
+            colorsSearched.remove(row - 1);
 
-        for(Color color : colorsSearched) {
-            searchedColorsArea.setText(searchedColorsArea.getText() +
-                    "Color searched -> " + color.getTitle() + " Hex Code -> " + color.getHex() + "\n");
+            ColorsSearchedTask colorsSearchedTask = new ColorsSearchedTask(colorsSearched, searchedColorsArea);
+            new Thread(colorsSearchedTask).start();
         }
     }
 
@@ -213,7 +214,7 @@ public class AppController implements Initializable {
     public ComboBox<String> mainSelectorPalette = new ComboBox<>(paleteTitles);
 
     public TextArea searchedColorsArea;
-    public List<Color> colorsSearched;
+    public ObservableList<Color> colorsSearched = FXCollections.observableArrayList();
     public TextField colorRegisterSelected;
 
     public Label lbViews;

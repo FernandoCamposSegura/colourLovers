@@ -11,3 +11,4 @@ com\svalero\reactive\api\model\HSV.class
 com\svalero\reactive\api\util\R.class
 com\svalero\reactive\api\service\IColourService.class
 com\svalero\reactive\api\model\RGB.class
+com\svalero\reactive\api\task\ColorsSearchedTask.class

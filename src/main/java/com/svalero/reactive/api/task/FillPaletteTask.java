@@ -1,6 +1,5 @@
 package com.svalero.reactive.api.task;
 
-import com.svalero.reactive.api.model.Color;
 import com.svalero.reactive.api.model.Palette;
 import com.svalero.reactive.api.service.ColourService;
 
