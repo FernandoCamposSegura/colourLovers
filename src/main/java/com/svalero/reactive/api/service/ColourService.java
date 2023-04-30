@@ -3,6 +3,7 @@ package com.svalero.reactive.api.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.svalero.reactive.api.model.Color;
+import com.svalero.reactive.api.model.Palette;
 
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
@@ -36,8 +37,20 @@ public class ColourService {
         this.coloursAPI = retrofit.create(IColourService.class);
     }
 
-    public Observable<Color> getInformation(String hex){
-        return this.coloursAPI.getInformation(hex).flatMapIterable(color -> color);
+    public Observable<Color> getColorInformation(String hex){
+        return this.coloursAPI.getColorInformation(hex).flatMapIterable(color -> color);
+    }
+
+    public Observable<Color> getAllInformation() {
+        return this.coloursAPI.getAllInformation().flatMapIterable(colors -> colors);
+    }
+
+    public Observable<Palette> getPaletteInformation(long id){
+        return this.coloursAPI.getPaletteInformation(id).flatMapIterable(palette -> palette);
+    }
+
+    public Observable<Palette> getAllPalettesInformation() {
+        return this.coloursAPI.getAllPalettesInformation().flatMapIterable(palettes -> palettes);
     }
 
 }

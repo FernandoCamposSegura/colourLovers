@@ -1,5 +1,7 @@
 package com.svalero.reactive.api.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,15 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Color {
+public class Palette {
+    long id;
     String title;
-    String username;
     int numViews;
     int numVotes;
     int numComments;
     float numHearts;
     int rank;
-    String hex;
-    RGB rgb;
-    HSV hsv;
+    List<String> colors;
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RGB {
-    int red;
-    int green;
-    int blue;
+    double red;
+    double green;
+    double blue;
 }

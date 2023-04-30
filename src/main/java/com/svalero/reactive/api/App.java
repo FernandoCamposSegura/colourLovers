@@ -2,7 +2,6 @@ package com.svalero.reactive.api;
 
 import com.svalero.reactive.api.controller.AppController;
 import com.svalero.reactive.api.util.R;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
